@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+body {
+    background-color: #d8eefe; /* Soft Serene Blue */
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 32px; /* Reduced for better fit */
+    color: #2b4d6e; /* Deep Serene Blue */
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 16px; /* Adjusted */
+    color: #2c4765;
+    margin-bottom: 15px;
+}
+
+/* Responsive Grid Layout */
+.album-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    padding: 10px;
+}
+
+/* Card Styling */
+.photo-card {
+    width: 100%;
+    max-width: 100%;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Styling */
+.photo-card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+    transition: 0.4s ease-in-out;
+}
+
+/* Glass Blur Effect */
+.photo-card .message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(12px);
+    color: #1c3554;
+    text-align: center;
+    padding: 15px 20px;
+    border-radius: 12px;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+/* Message Text Styling */
+.message h2, .message h3, .message p {
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.message h2 {
+    font-size: 22px;
+    color: #16314f;
+}
+
+.message h3 {
+    font-size: 18px;
+    color: #1e4773;
+}
+
+.message p {
+    font-size: 16px;
+    color: #2b5b8b;
+}
+
+/* Apply blur when clicked */
+.photo-card.active img {
+    filter: blur(6px);
+}
+
+.photo-card.active .message {
+    opacity: 1;
+}
+
+/* Footer Styling */
+footer {
+    margin-top: 30px;
+    font-size: 16px;
+    color: #1e3a5f;
+}
+
+footer a {
+    color: #1e4773;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+footer .material-icons {
+    font-size: 18px;
+    vertical-align: middle;
+    color: #1e4773;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    .subtitle {
+        font-size: 13px;
+    }
+
+    .album-container {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-card {
+        width: 90vw;
+        max-width: 400px;
+        height: 550px;
+    }
+}
+
+/* Desktop View: 4 Images per Row with Vertical Rectangles */
+@media (min-width: 1024px) {
+    .album-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .photo-card {
+        height: 500px;
+    }
+}
